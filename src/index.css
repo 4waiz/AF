@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-apple-cream text-slate-800 antialiased transition-colors duration-300;
+    font-family: "Quicksand", "Trebuchet MS", "Segoe UI", sans-serif;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cooper Black", "Baloo 2", "Trebuchet MS", "Comic Sans MS", cursive;
+  }
+
+  ::selection {
+    background: #ffd7c9;
+    color: #6b3f2a;
+  }
+
+  .dark ::selection {
+    background: #E93A3A;
+    color: #fff;
+  }
+}
+
+@layer components {
+  .btn-sweep {
+    background-size: 220% 220%;
+    background-position: 0% 50%;
+    transition: background-position 0.6s ease, transform 0.2s ease;
+  }
+
+  .btn-sweep:hover {
+    background-position: 100% 50%;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apple-red/60 focus-visible:ring-offset-2 focus-visible:ring-offset-apple-cream;
+  }
+
+  .dark .focus-ring {
+    @apply focus-visible:ring-offset-dark-bg;
+  }
+
+  .card-glow {
+    box-shadow: 0 16px 34px -24px rgba(233, 58, 58, 0.45);
+  }
+
+  .dark .card-glow {
+    box-shadow: 0 16px 34px -24px rgba(233, 58, 58, 0.25);
+  }
+}
+
+@layer utilities {
+  .bg-dots {
+    background-image: radial-gradient(rgba(233, 58, 58, 0.16) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .dark .bg-dots {
+    background-image: radial-gradient(rgba(233, 58, 58, 0.1) 1px, transparent 1px);
+  }
+
+  .bg-waves {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(52, 184, 107, 0.08),
+      rgba(52, 184, 107, 0.08) 6px,
+      transparent 6px,
+      transparent 16px
+    );
+  }
+
+  .dark .bg-waves {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(52, 184, 107, 0.05),
+      rgba(52, 184, 107, 0.05) 6px,
+      transparent 6px,
+      transparent 16px
+    );
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 8px 18px rgba(233, 58, 58, 0.25);
+  }
+
+  .dark .text-shadow-soft {
+    text-shadow: 0 8px 18px rgba(233, 58, 58, 0.15);
+  }
+}
